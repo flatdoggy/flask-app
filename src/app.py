@@ -38,7 +38,8 @@ def lists_route():
 
 def create_app():
     app = Flask(__name__.split(".")[0])
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:////tmp/tasklists.db'
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://postgres:admin@db/tasklists'
+#    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:////tmp/tasklists.db'
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     app.register_blueprint(lists)
